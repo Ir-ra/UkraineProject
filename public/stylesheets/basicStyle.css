@@ -1,0 +1,54 @@
+#cluster-map {
+    width: 100%;
+    height: 350px;
+    
+}
+
+#map {
+    width: 100%;
+    height: 300px;
+    border: 2px solid rgb(190, 190, 184);
+}
+
+body {
+    background-color: rgb(247, 247, 241)
+}
+
+@media (max-width: 990px){
+#descrptAll {
+    display: block;
+    max-width: 98%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    color: #555;
+}}
+
+#img{
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+#toTopBtn {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; 
+    outline: none;
+    background-color: rgb(244, 237, 141);
+    color: #000000;
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 50px; 
+    font-size: 17px; 
+    transition: all 0.25s;
+}
+
+#toTopBtn:hover {
+    background-color:rgb(156, 228, 235);
+    transform: translateY(-0.4em);
+}

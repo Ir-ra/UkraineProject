@@ -1,0 +1,50 @@
+<% layout('layout/boilerplate') %>
+<div class="row">
+    <h3 class="text-center">Add new place</h3>
+    <div class="col-md-6 offset-md-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <form action="/places" method="post" novalidate class="validated-form" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="place[title]" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="region" class="form-label">Region</label>
+                        <input type="text" class="form-control" name="place[region]" id="region" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload images</label>
+                        <input class="form-control" type="file" id="image" name="image" multiple>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" name="place[location]" id="location" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" type="text" name="place[description]" id="description"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">Add Place</button>
+                    </div>
+                    <div class="mb-3">
+                        <a type="button" class="btn btn-secondary btn-sm" href="/places"
+                            class="btn btn-link mt-2 ">&larr;Back to all places</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
+</div>

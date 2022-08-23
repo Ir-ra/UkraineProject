@@ -1,0 +1,68 @@
+
+<% layout('layout/boilerplate') %> <div class="row">
+    <h3 class="text-center">Update place</h3>
+    <div class="col-md-6 offset-md-3">
+        <div class="card shadow">
+            <div class="card-body">
+                <form action="/places/<%= place._id %>?_method=PUT " method="post" novalidate class="validated-form"
+                    enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="place[title]"
+                            value="<%= place.title %>" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="region" class="form-label">Region</label>
+                        <input type="text" class="form-control" name="place[region]" id="region"
+                            value="<%= place.region %>" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" name="place[location]" id="location"
+                            value="<%= place.location %>" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" type="text" id="description" name="place[description]"
+                            required><%= place.description %></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload more images</label>
+                        <input class="form-control" type="file" id="image" name="image" multiple>
+                    </div>
+
+                    <div class="mb-3">
+                        <% place.images.forEach(function(img, i){ %>
+                            <img src="<%= img.thumbnail %>" class="img-thumbnail" alt="">
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="image-<%= i %>" name="delImg[]"
+                                    value="<%= img.filename %>">
+                                <label class="form-check-label" for="image-<%= i %>">Delete?</label>
+                            </div>
+                            <% }) %>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-outline-warning">Update</button>
+                    </div>
+
+                    <div class="mb-3">
+                        <a type="button" class="btn btn-secondary btn-sm" href="/places"
+                            class="btn btn-link mt-2 ">&larr;Back</a>
+                    </div>
+            </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

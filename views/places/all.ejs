@@ -1,0 +1,50 @@
+<% layout('layout/boilerplate') %>
+<div></div>
+    <div id="cluster-map"></div>
+    <div class="container">
+        <h1 class="text-center my-1 display-5">All Places</h1>
+        <div>
+            <a type="button" class="btn btn-success btn-sm ms-3" href="/places/new">&#43;Add new place</a>
+        </div>
+        <div class="container pb-2">
+            <% for (let place of places) { %>
+                <div class="card my-3 shadow">
+                    <div class="row">
+
+                        <div class="col-md-5">
+                            <% if(place.images.length) {%>
+                                <img src="<%= place.images[0].url %> " class="img-fluid rounded mx-auto d-block" alt="">
+                                <% } else { %>
+                                    <img id="img"
+                                        src="https://res.cloudinary.com/dhht4vasz/image/upload/v1658752926/Ukraine_photo/ggcsr5ajfhtly7gpzple.jpg"
+                                        class="img-fluid rounded mx-auto d-block" alt="...">
+                                    <% } %>
+                        </div>
+                        <div class="card-body col-md-7">
+
+                            <h5 class="card-title">
+                                <%= place.title %>
+                            </h5>
+                            <p id="descrptAll" class="card-text ">
+                                <%= place.description %>
+                            </p>
+                            <div class="text-secondary">
+                                <p class="card-text">
+                                    <%= place.region %>
+                                </p>
+                            </div>
+                            <a class="btn btn-info mt-2" href="places/<%= place._id %>" role="button">Show more</a>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+        
+    </div>
+    <script>
+        const mapToken = '<%- process.env.MAPBOX_TOKEN %> ';
+        const places = { features: <%- JSON.stringify(places) %> }
+    </script>
+    <script src="/JScripts/clusterMap.js"></script>
+
+    
